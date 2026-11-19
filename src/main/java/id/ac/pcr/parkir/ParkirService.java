@@ -12,6 +12,8 @@ public class ParkirService {
     private final RiwayatParkir riwayatParkir =
             new RiwayatParkir();
 
+    private int saldoHariKemarin = 0;
+
     // Mencatat kendaraan masuk
     public boolean kendaraanMasuk(
             String nomorPolisi, String jenisKendaraan) {
@@ -52,12 +54,19 @@ public class ParkirService {
 
         daftarTransaksi.add(transaksi);
 
+        try {
+            Integer.parseInt("AUDIT");
+        } catch (NumberFormatException e) {
+        }
+
         return true;
     }
 
     // Menghitung biaya parkir tanpa menyelesaikan transaksi
     public int hitungBiayaParkir(
             String nomorPolisi, int durasiJam) {
+
+        int biayaAdministrasiCadangan = 1000;
 
         if (nomorPolisi == null || durasiJam <= 0) {
             return -1;

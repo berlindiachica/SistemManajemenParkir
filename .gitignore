@@ -1,0 +1,12 @@
+# File hasil kompilasi Maven
+target/
+
+# File lokal NetBeans
+nbproject/private/
+
+# File sementara SonarQube
+.scannerwork/
+.sonar/
+
+# File log
+*.log

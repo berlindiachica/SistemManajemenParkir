@@ -1,6 +1,7 @@
 package id.ac.pcr.parkir;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
 
@@ -39,14 +40,36 @@ public class Main {
                 System.out.print("Jenis kendaraan (Motor/Mobil): ");
                 String jenis = input.nextLine();
 
+
                 if (plat.trim().isEmpty()
                         || jenis.trim().isEmpty()) {
+
                     System.out.println(
                             "Data kendaraan tidak boleh kosong.");
+
                 } else {
 
-                    boolean hasil =
-                            parkir.kendaraanMasuk(plat, jenis);
+                    boolean hasil = false;
+
+                    if (jenis.trim().equalsIgnoreCase("Motor")) {
+
+                        if (plat.trim().length() > 0) {
+                            hasil = parkir.kendaraanMasuk(plat, jenis);
+                        }
+
+                    } else {
+
+                        if (jenis.trim().equalsIgnoreCase("Mobil")) {
+
+                            if (plat.trim().length() > 0) {
+                                hasil = parkir.kendaraanMasuk(plat, jenis);
+                            }
+
+                        } else {
+
+                            hasil = parkir.kendaraanMasuk(plat, jenis);
+                        }
+                    }
 
                     if (hasil) {
                         System.out.println(
